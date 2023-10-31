@@ -1,6 +1,6 @@
 from decimal import Decimal, ROUND_HALF_UP
 
-def round_numbers(numbers, precision=0):
+def round_numbers(numbers, precision=0):#Округление значений обратной матрицы
     rounded_numbers = [Decimal(str(num)).quantize(Decimal('1e-{0}'.format(precision)), rounding=ROUND_HALF_UP) for num in numbers]
     return rounded_numbers
 
