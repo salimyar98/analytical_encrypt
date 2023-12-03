@@ -1,11 +1,11 @@
 from decimal import Decimal, ROUND_HALF_UP
 
-def round_numbers(numbers, precision=0):#Округление значений обратной матрицы
-    rounded_numbers = [Decimal(str(num)).quantize(Decimal('1e-{0}'.format(precision)), rounding=ROUND_HALF_UP) for num in numbers]
+def round_numbers(numbers:list):#Округление значений обратной матрицы
+    rounded_numbers = [Decimal(str(num)).quantize(Decimal('1e-{0}'.format(0)), rounding=ROUND_HALF_UP) for num in numbers]
     return rounded_numbers
 
 
-def multiply_matrix_vector(matrix, vector):#умножение матрицы на вектор
+def multiply_matrix_vector(matrix:list, vector:list):#умножение матрицы на вектор
     result = [0, 0, 0]
     
     for i in range(3):
@@ -15,7 +15,7 @@ def multiply_matrix_vector(matrix, vector):#умножение матрицы н
     return result
 
 
-def inverse_matrix(matrix):#вычисление обратной матрицы
+def inverse_matrix(matrix:list):#вычисление обратной матрицы
 
     a, b, c = matrix[0]
     d, e, f = matrix[1]
