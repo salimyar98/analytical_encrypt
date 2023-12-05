@@ -1,11 +1,19 @@
 import data, enc_dec
 
-word = input('Введите слово, которое нужно зашифровать: ').upper()
+while True:
+    word = input('Введите слово кириллицей из 6 букв, которое нужно зашифровать: ').upper()
+    if len(word) == 6:
+        try:
+            matrix_option = int(input('Введите номер варианта от 1 до 50 для определения матрицы ключей: '))
+            if 0 < matrix_option < 51:
+                break
+        except ValueError:
+            print("Неверный ввод числа. Попробуйте снова.")
+
 num_eq = []
-matrix_option = int(input('Введите номер варианта для определения матрицы ключей: '))
 matrix = data.matrix_option_list[matrix_option]
 
-for i in word:#вычисление числового эквивалента слова 
+for i in word:  # вычисление числового эквивалента слова
     num_eq.append(data.coding_alphabet[i])
 
 vector0 = num_eq[:3]
@@ -30,5 +38,5 @@ result_word = ''
 
 for i in result_decode:
     result_word += data.coding_alphabet_reverse[i]
-    
+
 print('Слово переведенное из числового эквивалента -', result_word)
